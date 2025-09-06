@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 use DI\ContainerBuilder;
 use NasgorApp\NasiGoreng;
+use FastRoute\RouteCollector;
+use Middlewares\FastRoute;
+use Middlewares\RequestHandler;
 use Relay\Relay;
 use Laminas\Diactoros\ServerRequestFactory;
 use function DI\create;
+use function FastRoute\simpleDispatcher;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -18,6 +22,11 @@ $containerBuilder->addDefinitions([
 ]);
 
 $container = $containerBuilder->build();
+
+$middlewareQeueu = [];
+
+$requestHandler = new Relay($middlewareQeueu);
+$requestHandler->handle(ServerRequestFactory::fromGlobals());
 
 $nasgor = $container->get(NasiGoreng::class);
 $nasgor->resep();
