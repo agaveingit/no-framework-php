@@ -23,7 +23,12 @@ $containerBuilder->addDefinitions([
 
 $container = $containerBuilder->build();
 
-$middlewareQeueu = [];
+$routes = simpleDispatcher(function (RouteCollector $r) {
+    $r->get('resep', NasiGoreng::class);
+});
+
+$middlewareQeueu[] = new FastRoute($routes);
+$middlewareQeueu[] = new RequestHandler();
 
 $requestHandler = new Relay($middlewareQeueu);
 $requestHandler->handle(ServerRequestFactory::fromGlobals());
