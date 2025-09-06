@@ -31,10 +31,12 @@ $containerBuilder->addDefinitions([
 $container = $containerBuilder->build();
 
 $routes = simpleDispatcher(function (RouteCollector $r) {
-    $r->get('/resep', NasiGoreng::class);
-    $r->get('/', function () {
+    $r->get('/test/public/resep', NasiGoreng::class);
+    $r->get('/test/public/', function () {
         $response = new Response();
-        $response->getBody()->write('<h1>Selamat Datang di Warung Nasgor!</h1><p><a href="/resep">Lihat Resep</a></p>');
+        $response->getBody()->write('<h1>Selamat Datang di Warung Nasgor!</h1>
+                                        <p><a href="/test/public/resep">Lihat Resep
+                                        </a></p>');
         return $response;
     });
 });

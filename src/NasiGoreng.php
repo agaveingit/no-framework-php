@@ -34,7 +34,7 @@ class NasiGoreng
                 <p>Bahan: {$this->bahan1}, {$this->bahan2}, {$this->bahan3}</p>
                 <p>Alat: {$this->alat}</p>
                 <p>Dimasak oleh: <strong>{$this->koki}</strong></p>
-                <a href='/'>Kembali ke Home</a>
+                <a href='/test/public/'>Kembali ke Home</a>
             </body>
         </html>");
 

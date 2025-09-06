@@ -4,3 +4,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.php [QSA,L]
 </IfModule>
+
+<IfModule !mod_rewrite.c>
+    FallbackResource /test/public/index.php
+</IfModule>
