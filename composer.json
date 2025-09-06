@@ -1,0 +1,19 @@
+{
+    "name": "agaveingit/my-framework",
+    "description": "An example of a modern PHP application bootstrapped without a framework.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "agevavava",
+            "email": "holhokgorgok@gmail.com"
+        }
+    ],
+    "require": {
+        "php-di/php-di": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "NasgorApp\\": "src/"
+        }
+    }
+}
