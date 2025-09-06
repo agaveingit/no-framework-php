@@ -11,8 +11,9 @@ class NasiGoreng
     public string $bahan3 = "bumbu-bumbu";
     public string $alat = "kompor";
 
-    public function resep(): void
+    public function __invoke(): void
     {
         echo 'Nasi, minyak, bumbu, api';
+        exit;
     }
 }

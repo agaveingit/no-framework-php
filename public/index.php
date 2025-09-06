@@ -34,4 +34,4 @@ $requestHandler = new Relay($middlewareQeueu);
 $requestHandler->handle(ServerRequestFactory::fromGlobals());
 
 $nasgor = $container->get(NasiGoreng::class);
-$nasgor->resep();
+$nasgor->__invoke();
