@@ -8,10 +8,10 @@ use Psr\Http\Message\ResponseInterface;
 
 class NasiGoreng
 {
-    public string $bahan1 = "nasi";
-    public string $bahan2 = "minyak";
-    public string $bahan3 = "bumbu-bumbu";
-    public string $alat = "kompor";
+    public string $bahan1 = "nasi 🌾🍚";
+    public string $bahan2 = "minyak 🧈";
+    public string $bahan3 = "bumbu-bumbu 🫚";
+    public string $alat = "kompor 🔥";
 
     private $koki;
     private $response;

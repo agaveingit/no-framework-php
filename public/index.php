@@ -22,7 +22,7 @@ $containerBuilder->useAutowiring(false);
 $containerBuilder->useAttributes(false);
 $containerBuilder->addDefinitions([
     NasiGoreng::class => create(NasiGoreng::class)->constructor(get('Koki'), get('Response')),
-    'Koki' => 'Koki Rahasia',
+    'Koki' => 'Koki Rahasia 👨‍🍳',
     'Response' => function () {
         return new Response();
     }
