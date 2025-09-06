@@ -31,13 +31,23 @@ $containerBuilder->addDefinitions([
 $container = $containerBuilder->build();
 
 $routes = simpleDispatcher(function (RouteCollector $r) {
-    $r->get('/test/public/resep', NasiGoreng::class);
     $r->get('/test/public/', function () {
-        $response = new Response();
-        $response->getBody()->write('<h1>Selamat Datang di Warung Nasgor!</h1>
-                                        <p><a href="/test/public/resep">Lihat Resep
-                                        </a></p>');
-        return $response;
+        $path = __DIR__ . '/../resources/views/home.php';
+        if (file_exists($path)) {
+            include $path;
+        } else {
+            echo "File not found: " . $path;
+        }
+        exit;
+    });
+    $r->get('/test/public/resep', function () {
+        $path = __DIR__ . '/../resources/views/resep.php';
+        if (file_exists($path)) {
+            include $path;
+        } else {
+            echo "File not found: " . $path;
+        }
+        exit;
     });
 });
 
