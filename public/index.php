@@ -8,6 +8,7 @@ use FastRoute\RouteCollector;
 use Middlewares\FastRoute;
 use Middlewares\RequestHandler;
 use Relay\Relay;
+use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ServerRequestFactory;
 use function DI\create;
 use function DI\get;
@@ -19,8 +20,11 @@ $containerBuilder = new \DI\ContainerBuilder();
 $containerBuilder->useAutowiring(false);
 $containerBuilder->useAttributes(false);
 $containerBuilder->addDefinitions([
-    NasiGoreng::class => create(NasiGoreng::class)->constructor(get('Koki')),
-    'Koki' => 'orang'
+    NasiGoreng::class => create(NasiGoreng::class)->constructor(get('Koki'), get('Response')),
+    'Koki' => 'orang',
+    'Response' => function () {
+        return new Response();
+    }
 ]);
 
 $container = $containerBuilder->build();

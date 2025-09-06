@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NasgorApp;
 
+use Psr\Http\Message\ResponseInterface;
+
 class NasiGoreng
 {
     public string $bahan1 = "nasi";
@@ -13,14 +15,22 @@ class NasiGoreng
 
     private $koki;
 
-    public function __construct(string $koki)
-    {
+    private $response;
+
+    public function __construct(
+        string $koki,
+        ResponseInterface $response
+    ) {
         $this->koki = $koki;
+        $this->response = $response;
     }
 
-    public function __invoke(): void
+    public function __invoke(): ResponseInterface
     {
-        echo "Nasi, minyak, bumbu, api. Dimasak oleh {$this->koki}";
-        exit;
+        $response = $this->response->withHeader('Content-Type', 'text/html');
+        $response->getBody()->write("<html><head></head><body>
+                                    Nasi, minyak, bumbu, api. Dimasak oleh {$this->koki}.
+                                    </body></html>");
+        return $response;
     }
 }
