@@ -14,7 +14,6 @@ class NasiGoreng
     public string $alat = "kompor";
 
     private $koki;
-
     private $response;
 
     public function __construct(
@@ -28,9 +27,17 @@ class NasiGoreng
     public function __invoke(): ResponseInterface
     {
         $response = $this->response->withHeader('Content-Type', 'text/html');
-        $response->getBody()->write("<html><head></head><body>
-                                    Nasi, minyak, bumbu, api. Dimasak oleh {$this->koki}.
-                                    </body></html>");
+        $response->getBody()->write("<html>
+            <head><title>Resep Nasi Goreng</title></head>
+            <body>
+                <h1>Resep Nasi Goreng Spesial</h1>
+                <p>Bahan: {$this->bahan1}, {$this->bahan2}, {$this->bahan3}</p>
+                <p>Alat: {$this->alat}</p>
+                <p>Dimasak oleh: <strong>{$this->koki}</strong></p>
+                <a href='/'>Kembali ke Home</a>
+            </body>
+        </html>");
+
         return $response;
     }
 }
