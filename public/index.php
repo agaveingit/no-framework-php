@@ -17,5 +17,5 @@ $containerBuilder->addDefinitions([
 
 $container = $containerBuilder->build();
 
-$nasgor = new \NasgorApp\NasiGoreng();
+$nasgor = $container->get(NasiGoreng::class);
 $nasgor->resep();
