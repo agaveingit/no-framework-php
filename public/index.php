@@ -10,6 +10,7 @@ use Middlewares\RequestHandler;
 use Relay\Relay;
 use Laminas\Diactoros\ServerRequestFactory;
 use function DI\create;
+use function DI\get;
 use function FastRoute\simpleDispatcher;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
@@ -18,7 +19,8 @@ $containerBuilder = new \DI\ContainerBuilder();
 $containerBuilder->useAutowiring(false);
 $containerBuilder->useAttributes(false);
 $containerBuilder->addDefinitions([
-    \NasgorApp\NasiGoreng::class => \DI\create(\NasgorApp\NasiGoreng::class)
+    NasiGoreng::class => create(NasiGoreng::class)->constructor(get('Koki')),
+    'Koki' => 'orang'
 ]);
 
 $container = $containerBuilder->build();
@@ -28,7 +30,7 @@ $routes = simpleDispatcher(function (RouteCollector $r) {
 });
 
 $middlewareQeueu[] = new FastRoute($routes);
-$middlewareQeueu[] = new RequestHandler();
+$middlewareQeueu[] = new RequestHandler($container);
 
 $requestHandler = new Relay($middlewareQeueu);
 $requestHandler->handle(ServerRequestFactory::fromGlobals());

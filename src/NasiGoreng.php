@@ -11,9 +11,16 @@ class NasiGoreng
     public string $bahan3 = "bumbu-bumbu";
     public string $alat = "kompor";
 
+    private $koki;
+
+    public function __construct(string $koki)
+    {
+        $this->koki = $koki;
+    }
+
     public function __invoke(): void
     {
-        echo 'Nasi, minyak, bumbu, api';
+        echo "Nasi, minyak, bumbu, api. Dimasak oleh {$this->koki}";
         exit;
     }
 }
