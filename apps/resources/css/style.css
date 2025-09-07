@@ -1,0 +1,191 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        min-height: 100vh;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    header {
+        background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 100%);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+    .content {
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .framework {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .framework:hover {
+        transform: translateY(-5px);
+    }
+
+    .cakephp {
+        border-top: 5px solid #FF6B6B;
+    }
+
+    .fuelphp {
+        border-top: 5px solid #4ECDC4;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #2d3436;
+        display: flex;
+        align-items: center;
+    }
+
+    h2 img {
+        margin-right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .logo img {
+        height: 100px;
+        width: auto;
+    }
+
+    .description {
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .pros-cons {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin: 15px 0 10px;
+        color: #2d3436;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 5px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    li:before {
+        content: "•";
+        color: #FF6B6B;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+    }
+
+    .fuelphp li:before {
+        color: #4ECDC4;
+    }
+
+    .comparison {
+        grid-column: 1 / -1;
+        margin-top: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 25px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th,
+    td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #2d3436;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .conclusion {
+        grid-column: 1 / -1;
+        background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 100%);
+        color: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .conclusion h2 {
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px;
+        color: #777;
+        font-size: 0.9rem;
+    }
