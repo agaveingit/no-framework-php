@@ -21,5 +21,8 @@
         "psr-4": {
             "NasgorApp\\": "src/"
         }
-    }
+    },
+    "scripts": {
+    "build": "bash build.sh"
+}
 }

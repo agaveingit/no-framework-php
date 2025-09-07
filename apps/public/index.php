@@ -31,22 +31,18 @@ $containerBuilder->addDefinitions([
 $container = $containerBuilder->build();
 
 $routes = simpleDispatcher(function (RouteCollector $r) {
-    $r->get('/test/public/', function () {
-        $path = __DIR__ . '/../resources/views/home.php';
-        if (file_exists($path)) {
-            include $path;
-        } else {
-            echo "File not found: " . $path;
-        }
+
+    // $r->get('/', function () {
+    //     echo "Hello from root route!";
+    //     exit;
+    // });
+
+    $r->get('/', function () {
+        include __DIR__ . '/../resources/views/home.php';
         exit;
     });
-    $r->get('/test/public/resep', function () {
-        $path = __DIR__ . '/../resources/views/resep.php';
-        if (file_exists($path)) {
-            include $path;
-        } else {
-            echo "File not found: " . $path;
-        }
+    $r->get('/resep', function () {
+        include __DIR__ . '/../resources/views/resep.php';
         exit;
     });
 });
@@ -61,6 +57,3 @@ $response = $requestHandler->handle(ServerRequestFactory::fromGlobals());
 
 $emitter = new SapiEmitter();
 return $emitter->emit(($response));
-
-// $nasgor = $container->get(NasiGoreng::class);
-// $nasgor->__invoke();
