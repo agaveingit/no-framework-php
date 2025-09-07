@@ -1,5 +1,12 @@
 RewriteEngine On
+
+# Skip kalau file/direktori beneran ada
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ /test/public/index.php [L]
-RewriteRule ^resources/css/(.*)$ ../resources/css/$1 [L]
+
+# Jangan rewrite untuk assets/resources
+
+RewriteCond %{REQUEST_URI} !^/resources/
+
+RewriteRule ^ index.php [L]
